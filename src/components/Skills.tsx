@@ -33,15 +33,17 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="bg-secondary/30">
-      <div className="section-container">
+    <section id="skills" className="mesh-gradient">
+      <div className="section-container relative">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Technical Skills</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+            <span className="gradient-text">Technical Skills</span>
+          </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Here's my technical expertise and proficiency levels in various technologies
           </p>
@@ -55,9 +57,9 @@ export function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: categoryIndex * 0.2 }}
-              className="bg-card rounded-xl p-6"
+              className="glass-effect rounded-xl p-6 card-hover"
             >
-              <h3 className="text-xl font-semibold mb-6">{category.name}</h3>
+              <h3 className="text-xl font-semibold mb-6 gradient-text">{category.name}</h3>
               <div className="space-y-6">
                 {category.skills.map((skill, skillIndex) => (
                   <div key={skill.name}>
@@ -65,7 +67,7 @@ export function Skills() {
                       <span className="font-medium">{skill.name}</span>
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                    <div className="h-2 bg-secondary/30 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
@@ -75,7 +77,12 @@ export function Skills() {
                           delay: categoryIndex * 0.2 + skillIndex * 0.1,
                           ease: "easeOut"
                         }}
-                        className="h-full bg-primary rounded-full relative"
+                        className="h-full rounded-full relative"
+                        style={{
+                          background: `linear-gradient(90deg, 
+                            rgba(124, 58, 237, 0.8) 0%,
+                            rgba(219, 39, 119, 0.8) 100%)`
+                        }}
                       >
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/50 to-primary"></div>
                       </motion.div>
@@ -86,6 +93,10 @@ export function Skills() {
             </motion.div>
           ))}
         </div>
+
+        {/* Background decoration */}
+        <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
       </div>
     </section>
   )
