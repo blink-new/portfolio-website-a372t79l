@@ -2,6 +2,9 @@
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { About } from './components/About'
+import { Projects } from './components/Projects'
+import { Testimonials } from './components/Testimonials'
+import { Contact } from './components/Contact'
 
 function App() {
   return (
@@ -10,7 +13,13 @@ function App() {
       <main>
         <Hero />
         <About />
+        <Projects />
+        <Testimonials />
+        <Contact />
       </main>
+      <footer className="py-6 text-center text-sm text-muted-foreground">
+        <p>© {new Date().getFullYear()} Your Name. All rights reserved.</p>
+      </footer>
     </div>
   )
 }
